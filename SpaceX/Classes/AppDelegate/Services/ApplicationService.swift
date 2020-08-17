@@ -11,6 +11,7 @@ import UIKit
 class ApplicationService: NSObject, AppDelegateService {
     var window: UIWindow?
     let container: DependencyContainer
+    let persistence = PersistenceService.shared
     
     lazy var appCoordinator: AppCoordinatorType = {
         return self.container.resolve(AppCoordinatorAssembly.self).build()
@@ -63,5 +64,9 @@ class ApplicationService: NSObject, AppDelegateService {
         appCoordinator.start(with: deepLink)
         
         return true
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        self.persistence.save()
     }
 }
