@@ -21,11 +21,17 @@ extension InformationPresenter {
 
 // MARK: Module Input
 extension InformationPresenter: InformationModuleInput {
-    
+    func setDetailObject(model: Launch) {
+        view?.set(model: model)
+    }
 }
 
 // MARK: View Output
 extension InformationPresenter: InformationViewOutput {
+    func cancel() {
+        router.popModule()
+    }
+    
     func viewDidLoad() {
         view?.set(title: "Information")
     }

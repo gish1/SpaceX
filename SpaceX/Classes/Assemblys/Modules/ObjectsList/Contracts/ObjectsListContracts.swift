@@ -26,13 +26,16 @@ protocol ObjectsListViewInput: class {
 // View Output
 protocol ObjectsListViewOutput: class {
     func viewDidLoad()
+    func viewLoadInformation()
+    func handleInformationTap(with: Launch)
 }
 
 // Interactor
 protocol ObjectsListInteractorInput {
+    func obtainInformation()
 }
 
 // Router
 protocol ObjectsListRouterProtocol: AlertRoutable {
-    
+    func showInformation(model: Launch)
 }

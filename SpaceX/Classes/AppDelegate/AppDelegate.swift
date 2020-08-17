@@ -21,12 +21,12 @@ class AppDelegate: AppDelegateManager {
         container.apply(MainCoordinatorAssembly.self)
         
         // Setup Modules
+        container.apply(InformationAssembly.self)
         container.apply(ObjectsListAssembly.self)
         
         // Setup Services
         container.apply(AppConfigServiceAssembly.self)
         container.apply(EnvironmentServiceAssembly.self)
-        
         
         return container
     }()

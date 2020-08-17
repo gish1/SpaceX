@@ -9,4 +9,7 @@
 import Foundation
 
 class InformationRouter: BaseModuleRouter, InformationRouterProtocol {
+    func popModule() {
+        coordinator.router.popModule(animated: true)
+    }
 }
