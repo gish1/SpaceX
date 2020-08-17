@@ -12,12 +12,12 @@ enum Storyboards: String {
     case main = "ObjectsList"
 }
 
-enum Constants {
+enum Constants{
     enum App {
         
     }
     
-    enum Network {
-        
+    enum Network: String  {
+        case url = "https://api.spacexdata.com/v3/launches?limit=30&offset=0"
     }
 }

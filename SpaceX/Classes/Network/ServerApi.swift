@@ -17,15 +17,20 @@ class ServerApi {
         guard let url = URL(string: urlString) else {
             return
         }
+        
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        config.urlCache = nil
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        let session = URLSession.init(configuration: config)
+        session.dataTask(with: url) { data, response, error in
                 if let error = error {
                     completeion(.failure(error))
                     return
                 }
                 guard let data = data else {
                     return
-            }
+                }
                 completeion(.success(data))
         }.resume()
     }
