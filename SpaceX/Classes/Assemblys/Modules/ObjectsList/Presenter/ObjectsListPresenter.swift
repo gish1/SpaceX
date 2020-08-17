@@ -26,7 +26,15 @@ extension ObjectsListPresenter: ObjectsListModuleInput {
 
 // MARK: View Output
 extension ObjectsListPresenter: ObjectsListViewOutput {
+    func viewLoadInformation() {
+        interactor.obtainInformation()
+    }
+    
     func viewDidLoad() {
         view?.set(title: "ObjectsList")
+    }
+    
+    func handleInformationTap(with: Launch) {
+        router.showInformation(model: with)
     }
 }

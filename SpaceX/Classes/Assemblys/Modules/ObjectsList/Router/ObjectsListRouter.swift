@@ -9,5 +9,10 @@
 import Foundation
 
 class ObjectsListRouter: BaseModuleRouter, ObjectsListRouterProtocol {
-    
+    func showInformation(model: Launch) {
+        let module = container.resolve(InformationAssembly.self).build(coordinator: coordinator)
+        coordinator.router.push(module)
+        module.input.setDetailObject(model: model)
+        
+    }
 }
